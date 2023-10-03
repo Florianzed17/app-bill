@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block recent_events %}
+{% block content %}
+    <div class="container">
+        <h1>Résultats de recherche pour "{{ query }}"</h1>
+        <hr>
+
+        {% if results %}
+            <div class="row">
+                {% for result in results %}
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="{{ result.image.url }}" alt="Image de l'événement" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ result.nom }}</h5>
+                                <p class="card-text">Date: {{ result.date }}</p>
+                                <p class="card-text">Thème: {{ result.theme }}</p>
+                                <p class="card-text">Prix: {{ result.prix }}</p>
+                                <p class="card-text">Pays: {{ result.pays }}</p>
+                                <p class="card-text">Ville: {{ result.ville }}</p>
+                                <a href="{% url 'events:achat' result.id %}" class="btn btn-primary">Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Aucun résultat trouvé.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block recent_events %}
+
+{% block content %}
+
+{% if form.errors %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        There was an error with your form...
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+
+<style>
+    body {
+        background-image: url({% static 'img/fdc.jpg' %});
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        margin-top: 100px;
+    }
+
+    .shadow {
+        padding: 4px;
+        margin-bottom: 5px;
+        background-color: #f8f9fa !important;
+        border-radius: 0.25rem;
+    }
+
+    .shadow h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .shadow form {
+        margin-bottom: 2rem;
+    }
+
+    .shadow input[type="submit"] {
+        background-color: #6c757d !important;
+        border-color: #6c757d !important;
+    }
+</style>
+
+<div class="container">
+    <div class="shadow p-4 mb-5 bg-body rounded">
+        <h1>INSCRIPTION</h1>
+        <br/>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <br/><br/>
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+            <p class="text-center">Vous avez déjà un compte ? <a href="{% url 'authentification:login' %}">Connectez-vous</a></p>
+
+    </div>
+
+</div>
+
+<br/><br/>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block header %}
+
+        <header class="py-5" style="background:black;">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Z3D EVENTS</h1>
+                    <p class="lead fw-normal text-white-50 mb-0"></p>
+                </div>
+            </div>
+        </header>
+{% endblock %}
+{% block recent_events %}
+{% block content %}
+    <h1>Confirmation d'achat</h1>
+    <p>Bonjour,</p>
+    <p>Merci pour votre achat !</p>
+    <p>Vos billets seront envoyés à l'adresse e-mail associée à votre compte.</p>
+    <p>Si vous avez des questions ou des problèmes, veuillez contacter notre service client.</p>
+    <p>Cordialement,</p>
+    <p>L'équipe Z3D EVENTS</p>
+
+    <!-- Ajoutez un message de confirmation supplémentaire -->
+    <p>Votre achat a été confirmé avec succès !</p>
+{% endblock %}
+{% endblock %}

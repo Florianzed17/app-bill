@@ -1,0 +1,79 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block recent_events %}
+{% block content %}
+    <div class="container">
+        <h2 class="fw-bolder">Détails de l'événement</h2>
+
+        <h1>{{ event.nom }}</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ event.image.url }}" alt="Image de l'événement" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <p>Date : {{ event.date }}</p>
+                <p>Thème : {{ event.theme }}</p>
+                <p>Prix : {{ event.prix }} MAD</p>
+                <p>Lieu : {{ event.ville }}, {{ event.pays }}</p>
+                <div class="mb-3">
+                    <a href="{% url 'events:achat' event.id %}" class="btn btn-primary">Acheter un billet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container share-event">
+        <h3>Partager l'événement</h3>
+        <div class="btn-group" role="group" aria-label="Partager sur les réseaux sociaux">
+            <a href="#" class="btn btn-primary">Facebook</a>
+        </div>
+        <br>
+        <div class="btn-group" role="group" aria-label="Partager sur les réseaux sociaux">
+            <a href="#" class="btn btn-primary">Twitter</a>
+        </div>
+        <br>
+        <div class="btn-group" role="group" aria-label="Partager sur les réseaux sociaux">
+            <a href="#" class="btn btn-primary">Instagram</a>
+        </div>
+    </div>
+
+    <style>
+        .event-details {
+            margin-top: 50px;
+        }
+
+        .event-details h3 {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .event-details ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .event-details li {
+            margin-bottom: 10px;
+        }
+
+        .share-event {
+            margin-top: 50px;
+        }
+
+        .share-event h3 {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .share-event .btn-group {
+            margin-bottom: 10px;
+        }
+    </style>
+
+{% endblock %}
+{% endblock %}

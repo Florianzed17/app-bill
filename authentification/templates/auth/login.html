@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block recent_events %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: url({% static 'img/fdc.jpg' %});
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
+<div class="container" style="margin-top: 100px;">
+    <div class="shadow p-4 mb-5 bg-body rounded">
+        <h1>CONNEXION</h1>
+        <br/>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+
+            <input type="submit" value="Se connecter" class="btn btn-secondary">
+        </form>
+        <p class="text-center">Vous n'avez pas de compte ? <a href="{% url 'authentification:register_user' %}">Inscrivez-vous</a></p>
+    </div>
+</div>
+
+<br/><br/>
+{% endblock %}
+{% endblock %}
